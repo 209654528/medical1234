@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医药科技与3D应用展示 | Medical Tech & 3D</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入Model Viewer用于显示3D模型 -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <!-- 引入图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-hospital-alt"></i>
+                <span id="site-title">医药科技前沿</span>
+            </div>
+            <div class="nav-links">
+                <a href=" " class="nav-link active" data-section="home">首页</a >
+                <a href="#" class="nav-link" data-section="tech">科技前沿</a >
+                <a href="#" class="nav-link" data-section="drug">药物模拟器</a >
+                <a href="#" class="nav-link" data-section="disease">疾病百科</a >
+            </div>
+            <div class="language-switcher">
+                <button id="lang-toggle" class="lang-btn">
+                    <i class="fas fa-language"></i>
+                    <span id="lang-text">English</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主页 -->
+    <section id="home" class="section active">
+        <div class="hero">
+            <h1 id="hero-title">探索医药科技与3D应用的未来</h1>
+            <p id="hero-subtitle">可视化医学革命，理解药物与疾病的交互</p >
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3 id="stat-1-title">前沿科技</h3>
+                    <p id="stat-1-desc">3D打印、AI制药、基因编辑</p >
+                </div>
+                <div class="stat">
+                    <h3 id="stat-2-title">交互模拟</h3>
+                    <p id="stat-2-desc">药物相互作用3D可视化</p >
+                </div>
+                <div class="stat">
+                    <h3 id="stat-3-title">疾病模型</h3>
+                    <p id="stat-3-desc">360度查看病原体与治疗</p >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 科技前沿部分 -->
+    <section id="tech" class="section">
+        <div class="section-header">
+            <h2 id="tech-title">🔬 医药学前沿科技</h2>
+            <p id="tech-subtitle">3D技术正在彻底改变医疗领域</p >
+        </div>
+        <div class="tech-grid" id="tech-content">
+            <!-- 这里会用JavaScript动态添加科技卡片 -->
+        </div>
+    </section>
+
+    <!-- 药物模拟器 -->
+    <section id="drug" class="section">
+        <div class="section-header">
+            <h2 id="drug-title">💊 药物相互作用模拟器</h2>
+            <p id="drug-subtitle">选择两种药物，查看它们的相互作用</p >
+        </div>
+        
+        <div class="simulator-container">
+            <div class="drug-selector">
+                <div class="drug-box" id="drug-box-1">
+                    <h3 id="drug-1-label">选择第一种药物</h3>
+                    <div class="drug-options" id="drug-options-1">
+                        <!-- 药物选项会在这里动态添加 -->
+                    </div>
+                </div>
+                
+                <div class="plus-sign">+</div>
+                
+                <div class="drug-box" id="drug-box-2">
+                    <h3 id="drug-2-label">选择第二种药物</h3>
+                    <div class="drug-options" id="drug-options-2">
+                        <!-- 药物选项会在这里动态添加 -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="simulate-btn-container">
+                <button id="simulate-btn" class="simulate-btn">
+                    <i class="fas fa-vial"></i>
+                    <span id="simulate-text">模拟相互作用</span>
+                </button>
+            </div>
+            
+            <div class="result-container" id="result-container" style="display: none;">
+                <div class="result-header">
+                    <h3 id="result-title">相互作用结果</h3>
+                    <div class="risk-level" id="risk-level"></div>
+                </div>
+                <div class="result-details">
+                    <p id="result-text"></p >
+                    <p id="mechanism-text"></p >
+                </div>
+                <div class="animation-container" id="animation-container">
+                    <!-- 3D动画将在这里显示 -->
+                </div>
+                <div class="warning" id="warning-text">
+                    ⚠️ 注意：本模拟器仅为教育目的，不能替代专业医疗建议。实际用药请咨询医生。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 疾病百科 -->
+    <section id="disease" class="section">
+        <div class="section-header">
+            <h2 id="disease-title">🦠 疾病与病原体百科</h2>
+            <p id="disease-subtitle">探索常见疾病的病原体与治疗方式</p >
+        </div>
+        
+        <div class="disease-container">
+            <div class="disease-sidebar">
+                <div class="disease-list" id="disease-list">
+                    <!-- 疾病列表会在这里动态添加 -->
+                </div>
+            </div>
+            
+            <div class="disease-main">
+                <div class="model-viewer" id="model-viewer">
+                    <!-- 3D模型将在这里显示 -->
+                    <div class="model-placeholder">
+                        <i class="fas fa-virus"></i>
+                        <p id="model-placeholder-text">选择一种疾病查看3D模型</p >
+                    </div>
+                </div>
+                <div class="disease-info" id="disease-info">
+                    <!-- 疾病信息会在这里显示 -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <p id="footer-text">© 2023 医药科技教育项目 | 仅供教育演示使用</p >
+    </footer>
+
+    <!-- 引入JavaScript文件 -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
